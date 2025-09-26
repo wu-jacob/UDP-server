@@ -15,6 +15,8 @@ add_executable(multicast_server
   src/multicast_server.cpp
 )
 
-target_include_directories(multicast_server PRIVATE include)
+target_include_directories(simple_server PRIVATE include)
+target_compile_options(simple_server PRIVATE -Wall -Wextra -g)
 
+target_include_directories(multicast_server PRIVATE include)
 target_compile_options(multicast_server PRIVATE -Wall -Wextra -g)
