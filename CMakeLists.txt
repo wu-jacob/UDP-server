@@ -7,10 +7,14 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 file(GLOB SOURCES src/*.cpp)
 
-add_executable(myapp
-  ${SOURCES}
+add_executable(simple_server
+  src/simple_server.cpp
 )
 
-target_include_directories(myapp PRIVATE include)
+add_executable(multicast_server
+  src/multicast_server.cpp
+)
 
-target_compile_options(myapp PRIVATE -Wall -Wextra -g)
+target_include_directories(multicast_server PRIVATE include)
+
+target_compile_options(multicast_server PRIVATE -Wall -Wextra -g)

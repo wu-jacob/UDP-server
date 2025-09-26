@@ -27,6 +27,9 @@ int main() {
     Note that we use reinterpret_cast to cast sockaddr_in* to sockaddr*
     Even though this is unsafe, it is required since bind expects a sockaddr*
     Static cast would not work here as sockaddr_in and sockaddr do not share a parent-child relationship
+
+    The bind function binds the socket to the specified IP address and port 
+    (in this case any address on port 8080)
     */
     if (bind(sock_fd, reinterpret_cast<sockaddr*>(&server_addr), sizeof(server_addr)) < 0) {
         std::cerr << "Bind failed" << std::endl;
@@ -34,7 +37,7 @@ int main() {
         return -1;
     }
 
-    std::cout << "Server is listening on port 8080" << std::endl;
+    std::cout << "Simple server is listening on port 8080" << std::endl;
 
     while (true) {
         char buffer[1024] {};
